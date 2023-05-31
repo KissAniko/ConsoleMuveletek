@@ -54,6 +54,21 @@ namespace ConsoleMuveletek
             bool eredmenyBool = kifejezesek.Any(x => x.OperandusBal % 10 == 0 && x.OperandusJobb % 10 == 0);
             Console.WriteLine($"4. feladat: {(eredmenyBool ? "Van" : "Nincs")} ilyen kifejezés");
 
+//---------------------------------------------------------------------------------------------
+
+         // Készítsen statisztikát az összeadás (+), kivonás (-), szorzás (*), valós osztás (/),
+         // egész osztás (div) és maradékos osztás (mod) operátorokat tartalmazó kifejezések számáról.
+
+               Console.WriteLine("5. feladat: Statisztika");
+            kifejezesek.Where(x => ValosOperator(x.Muvelet))
+                       .GroupBy(x => x.Muvelet)
+                       .ToList()
+                       .ForEach(x => Console.WriteLine($"\t{x.Key} -> {x.Count()} db"));
+        }
+
+        private static bool ValosOperator(string muvelet)
+        {
+            throw new NotImplementedException();
         }
     }
 }
